@@ -1,3 +1,11 @@
+/*
+Rock Paper C-issors
+Created by Nan0MK
+
+Once, for school, I created a Rock Paper Scissors game in python.
+I am now trying to replicate it in C
+*/
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -15,7 +23,67 @@ const char* msg_pickName = (
 	"Name: "
 );
 
-//
+const char* msg_mainMenu = (
+	"Rock Paper C-issors!\n"
+	"\n"
+	"(1 or P). PLAY\n"
+	"(2 or Q). QUIT\n"
+);
+
+const char* msg_replayMenu = (
+	"Want to play again?\n"
+	"\n"
+	"(1 or P). PLAY AGAIN\n"
+	"(2 or Q). QUIT\n"
+);
+
+//__Splashes__//
+const char* splash_0 = "Against an AI?!!\n";
+const char* splash_1 = "So you think you're smarter than a 5'th grader\n";
+const char* splash_2 = "Also try Minetest\n";
+const char* splash_3 = "Remember The Alamo!\n";
+const char* splash_4 = "Do you even lift bro?\n";
+const char* splash_5 = "Made by Na0MK!\n";
+const char* splash_6 = "ROCK! PAPER! SCISSORS!\n";
+const char* splash_7 = "\"Let\'s go Brandon, I agree\"\n";
+const char* splash_8 = "I use Windows, by the way!\n";
+const char* splash_9 = "You use Arch By The Way??\n";
+const char* splash_10 = "Welcome to my game...\n";
+const char* splash_11 = "GOD > Space suit\n";
+const char* splash_12 = "USA! USA! USA!\n";
+const char* splash_13 = "I like trains!\n";
+const char* splash_14 = "Do you no da wae?\n";
+const char* splash_15 = "Python to C\n";
+const char* splash_16 = "Parkour!!\n";
+const char* splash_17 = "A less bloated alternative to connect 4\n";
+const char* splash_18 = "This is not made in React?!\n";
+const char* splash_19 = "FIGHT! FIGHT! FIGHT!\n";
+const char* splash_20 = "Blazingly Fast!!\n";
+const char* splash_21 = "\"Brazil mentioned!\"\n";
+
+//__Victory Messages__//
+const char* vMsg_0 = "YOU WINNED\n";
+const char* vMsg_1 = "A gold medal for you!\n";
+const char* vMsg_2 = "GG...\n";
+const char* vMsg_3 = "Human Inside!\n";
+const char* vMsg_4 = "He\'s fast!\n";
+const char* vMsg_5 = "NANI!?\n";
+const char* vMsg_6 = "You Won!\n";
+const char* vMsg_7 = "Hip, hip, horray! The player saved the day!!\n";
+const char* vMsg_8 = "You have killed moor's law!!\n";
+const char* vMsg_9 = "You must have cleaned your room!\n";
+
+//__Defeat Messages__//
+const char* dMsg_0 = "Lol\n";
+const char* dMsg_1 = "Get good scrub\n";
+const char* dMsg_2 = "You have lost to the paperclip machine...\n";
+const char* dMsg_3 = "The AI takeover has begun!!\n";
+const char* dMsg_4 = "It's a skill issue\n";
+const char* dMsg_5 = "Did the Coputer pour water on your cirsuits?\n";
+const char* dMsg_6 = "You must have not cleaned your room!\n";
+const char* dMsg_7 = "C'mon, man!\n";
+//___________________//
+
 //_________________________________
 
 
@@ -79,6 +147,7 @@ Player createPlayer(const char* name){
 
 
 //________Utility_Functions________
+//Throw hands for Player
 void throwHands(Player *player){
 	printf("%s",msg_throwHands);
 	printf("HAND: ");
@@ -111,7 +180,7 @@ void throwHands(Player *player){
 		printf("\'%s\' is not valid in Rock Paper Scissors!\n", choice);
 	}
 }
-
+//Throw hands for Computer
 void autoThrowHands(Player *player){
 	int max = 3;
 	int min = 1;
@@ -183,6 +252,7 @@ GameState handThrowing(Player *player, Player *computer){
 		}
 }
 
+//________Main Game Loop________
 void game(){
 	// Player chooses name
 	printf("%s",msg_pickName);
@@ -219,6 +289,7 @@ void game(){
 		
 	}
 }
+//_________________________________
 
 
 int main(void){
