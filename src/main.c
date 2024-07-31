@@ -9,6 +9,7 @@ I am now trying to replicate it in C
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 //________Messages________
 const char* msg_throwHands = (
@@ -86,6 +87,9 @@ const char* dMsg_7 = "C'mon, man!\n";
 
 //_________________________________
 
+//________Codes________
+const char* code_clear = "\033[2J\033[H";
+//_________________________________
 
 //________Utilities________
 typedef enum LogicSignal{
@@ -100,6 +104,20 @@ typedef enum GameState{
 	GS_TIE,
 	GS_STOP,
 }GameState;
+
+void countdown(int secconds){
+	int i = secconds;
+	while(i > 0){
+		printf("%s",code_clear);
+		printf("%d",i);
+		fflush(stdout);
+		sleep(1);
+		i = i-1;
+	}
+	sleep(1);
+	printf("%s",code_clear);
+
+}
 //_________________________________
 
 //________Weapon_Stuff________
@@ -297,6 +315,7 @@ int main(void){
 
 	// printf("Player's name is: %s\nPlayer's score is: %d\nPlayer's hand is: %s\n", thePlayer.name, thePlayer.score, weaponConverter(thePlayer.hand));
 	// throwHands(&thePlayer);
+	countdown(5);
 	game();
 
 
