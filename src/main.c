@@ -62,6 +62,31 @@ const char* splash_19 = "FIGHT! FIGHT! FIGHT!\n";
 const char* splash_20 = "Blazingly Fast!!\n";
 const char* splash_21 = "\"Brazil mentioned!\"\n";
 
+const char *splashHolder[21] = {
+	&splash_0,
+	&splash_1,
+	&splash_2,
+	&splash_3,
+	&splash_4,
+	&splash_5,
+	&splash_6,
+	&splash_7,
+	&splash_8,
+	&splash_9,
+	&splash_10,
+	&splash_11,
+	&splash_12,
+	&splash_13,
+	&splash_14,
+	&splash_15,
+	&splash_16,
+	&splash_17,
+	&splash_18,
+	&splash_19,
+	&splash_20,
+	&splash_21,
+};
+
 //__Victory Messages__//
 const char* vMsg_0 = "YOU WINNED\n";
 const char* vMsg_1 = "A gold medal for you!\n";
@@ -74,6 +99,19 @@ const char* vMsg_7 = "Hip, hip, horray! The player saved the day!!\n";
 const char* vMsg_8 = "You have killed moor's law!!\n";
 const char* vMsg_9 = "You must have cleaned your room!\n";
 
+const char *vmsgHolder[9] = {
+	&vMsg_0,
+	&vMsg_1,
+	&vMsg_2,
+	&vMsg_3,
+	&vMsg_4,
+	&vMsg_5,
+	&vMsg_6,
+	&vMsg_7,
+	&vMsg_8,
+	&vMsg_9,
+};
+
 //__Defeat Messages__//
 const char* dMsg_0 = "Lol\n";
 const char* dMsg_1 = "Get good scrub\n";
@@ -83,6 +121,17 @@ const char* dMsg_4 = "It's a skill issue\n";
 const char* dMsg_5 = "Did the Coputer pour water on your cirsuits?\n";
 const char* dMsg_6 = "You must have not cleaned your room!\n";
 const char* dMsg_7 = "C'mon, man!\n";
+
+const char *dMsgHolder[7] = {
+	&dMsg_0,
+	&dMsg_1,
+	&dMsg_2,
+	&dMsg_3,
+	&dMsg_4,
+	&dMsg_5,
+	&dMsg_6,
+	&dMsg_7,
+};
 //___________________//
 
 //_________________________________
@@ -105,6 +154,7 @@ typedef enum GameState{
 	GS_STOP,
 }GameState;
 
+//Countdown
 void countdown(int secconds){
 	int i = secconds;
 	while(i > 0){
@@ -244,30 +294,34 @@ LogicSignal logicManager(Player *player1, Player *player2){
 
 GameState handThrowing(Player *player, Player *computer){
 	LogicSignal winnerIs = logicManager(player, computer);
-		switch (winnerIs){
-		case P1_WIN:
-			printf("Player wins with %s!\n",weaponConverter(player->hand));
-			player->score = player->score + 1;
-			return GS_WIN;
-			break;
-		
-		case P2_WIN:
-			printf("CPU wins with %s!\n",weaponConverter(computer->hand));
-			computer->score = computer->score + 1;
-			return GS_WIN;
-			break;
-		
-		case LS_TIE:
-			printf("TIE! Player chose %s.\nCPU chose %s.\n",weaponConverter(player->hand), weaponConverter(computer->hand));
-			return GS_TIE;
-			break;
-		
-		default:
-			printf("%s: %s\n%s: %s\n", player->name, weaponConverter(player->hand), computer->name, weaponConverter(computer->hand));
-			printf("I don't know what just happened!");
-			return GS_STOP;
-			break;
-		}
+	switch (winnerIs){
+	case P1_WIN:
+		printf("Player wins with %s!\n",weaponConverter(player->hand));
+		player->score = player->score + 1;
+		return GS_WIN;
+		break;
+	
+	case P2_WIN:
+		printf("CPU wins with %s!\n",weaponConverter(computer->hand));
+		computer->score = computer->score + 1;
+		return GS_WIN;
+		break;
+	
+	case LS_TIE:
+		printf("TIE! Player chose %s.\nCPU chose %s.\n",weaponConverter(player->hand), weaponConverter(computer->hand));
+		return GS_TIE;
+		break;
+	
+	default:
+		printf("%s: %s\n%s: %s\n", player->name, weaponConverter(player->hand), computer->name, weaponConverter(computer->hand));
+		printf("I don't know what just happened!");
+		return GS_STOP;
+		break;
+	}
+}
+
+void mainMenu(){
+	//
 }
 
 //________Main Game Loop________
