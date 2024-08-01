@@ -61,6 +61,8 @@ const char* splash_18 = "This is not made in React?!\n";
 const char* splash_19 = "FIGHT! FIGHT! FIGHT!\n";
 const char* splash_20 = "Blazingly Fast!!\n";
 const char* splash_21 = "\"Brazil mentioned!\"\n";
+const char* splash_22 = "Pulling Weeds < Mowing Lawn\n";
+const char* splashHolder[22];
 
 //__Victory Messages__//
 const char* vMsg_0 = "YOU WINNED\n";
@@ -116,7 +118,6 @@ void countdown(int secconds){
 	}
 	sleep(1);
 	printf("%s",code_clear);
-
 }
 //_________________________________
 
