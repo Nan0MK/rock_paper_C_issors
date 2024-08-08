@@ -64,7 +64,7 @@ const char* splash_21 = "\"Brazil mentioned!\"\n";
 const char* splash_22 = "Pulling Weeds < Mowing Lawn\n";
 const char* splashHolder[22];
 
-const char *splashHolder[21] = {
+const char* splashHolder[21] = {
 	&splash_0,
 	&splash_1,
 	&splash_2,
@@ -101,7 +101,7 @@ const char* vMsg_7 = "Hip, hip, horray! The player saved the day!!\n";
 const char* vMsg_8 = "You have killed moor's law!!\n";
 const char* vMsg_9 = "You must have cleaned your room!\n";
 
-const char *vmsgHolder[9] = {
+const char* vmsgHolder[9] = {
 	&vMsg_0,
 	&vMsg_1,
 	&vMsg_2,
@@ -124,7 +124,7 @@ const char* dMsg_5 = "Did the Coputer pour water on your cirsuits?\n";
 const char* dMsg_6 = "You must have not cleaned your room!\n";
 const char* dMsg_7 = "C'mon, man!\n";
 
-const char *dMsgHolder[7] = {
+const char* dMsgHolder[7] = {
 	&dMsg_0,
 	&dMsg_1,
 	&dMsg_2,
@@ -322,7 +322,7 @@ GameState handThrowing(Player *player, Player *computer){
 }
 
 void mainMenu(){
-	//
+	printf("s",msg_mainMenu);
 }
 
 //________Main Game Loop________
@@ -370,8 +370,9 @@ int main(void){
 
 	// printf("Player's name is: %s\nPlayer's score is: %d\nPlayer's hand is: %s\n", thePlayer.name, thePlayer.score, weaponConverter(thePlayer.hand));
 	// throwHands(&thePlayer);
-	countdown(5);
-	game();
+	mainMenu();
+	//countdown(5);
+	//game();
 
 
 	return 0;
