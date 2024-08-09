@@ -39,100 +39,56 @@ const char* msg_replayMenu = (
 );
 
 //__Splashes__//
-const char* splash_0 = "Against an AI?!!\n";
-const char* splash_1 = "So you think you're smarter than a 5'th grader\n";
-const char* splash_2 = "Also try Minetest\n";
-const char* splash_3 = "Remember The Alamo!\n";
-const char* splash_4 = "Do you even lift bro?\n";
-const char* splash_5 = "Made by Na0MK!\n";
-const char* splash_6 = "ROCK! PAPER! SCISSORS!\n";
-const char* splash_7 = "\"Let\'s go Brandon, I agree\"\n";
-const char* splash_8 = "I use Windows, by the way!\n";
-const char* splash_9 = "You use Arch By The Way??\n";
-const char* splash_10 = "Welcome to my game...\n";
-const char* splash_11 = "GOD > Space suit\n";
-const char* splash_12 = "USA! USA! USA!\n";
-const char* splash_13 = "I like trains!\n";
-const char* splash_14 = "Do you no da wae?\n";
-const char* splash_15 = "Python to C\n";
-const char* splash_16 = "Parkour!!\n";
-const char* splash_17 = "A less bloated alternative to connect 4\n";
-const char* splash_18 = "This is not made in React?!\n";
-const char* splash_19 = "FIGHT! FIGHT! FIGHT!\n";
-const char* splash_20 = "Blazingly Fast!!\n";
-const char* splash_21 = "\"Brazil mentioned!\"\n";
-const char* splash_22 = "Pulling Weeds < Mowing Lawn\n";
-const char* splashHolder[22];
-
-const char* splashHolder[21] = {
-	&splash_0,
-	&splash_1,
-	&splash_2,
-	&splash_3,
-	&splash_4,
-	&splash_5,
-	&splash_6,
-	&splash_7,
-	&splash_8,
-	&splash_9,
-	&splash_10,
-	&splash_11,
-	&splash_12,
-	&splash_13,
-	&splash_14,
-	&splash_15,
-	&splash_16,
-	&splash_17,
-	&splash_18,
-	&splash_19,
-	&splash_20,
-	&splash_21,
+const char *splashHolder[23] = {
+	"Against an AI?!!\n",
+	"So you think you're smarter than a 5'th grader\n",
+	"Also try Minetest\n",
+	"Remember The Alamo!\n",
+	"Do you even lift bro?\n",
+	"Made by Na0MK!\n",
+	"ROCK! PAPER! SCISSORS!\n",
+	"\"Let\'s go Brandon, I agree\"\n",
+	"I use Windows, by the way!\n",
+	"You use Arch By The Way??\n",
+	"Welcome to my game...\n",
+	"GOD > Space suit\n",
+	"USA! USA! USA!\n",
+	"I like trains!\n",
+	"Do you no da wae?\n",
+	"Python to C\n",
+	"Parkour!!\n",
+	"A less bloated alternative to connect 4\n",
+	"This is not made in React?!\n",
+	"FIGHT! FIGHT! FIGHT!\n",
+	"Blazingly Fast!!\n",
+	"\"Brazil mentioned!\"\n",
+	"Pulling Weeds < Mowing Lawn\n",
 };
 
 //__Victory Messages__//
-const char* vMsg_0 = "YOU WINNED\n";
-const char* vMsg_1 = "A gold medal for you!\n";
-const char* vMsg_2 = "GG...\n";
-const char* vMsg_3 = "Human Inside!\n";
-const char* vMsg_4 = "He\'s fast!\n";
-const char* vMsg_5 = "NANI!?\n";
-const char* vMsg_6 = "You Won!\n";
-const char* vMsg_7 = "Hip, hip, horray! The player saved the day!!\n";
-const char* vMsg_8 = "You have killed moor's law!!\n";
-const char* vMsg_9 = "You must have cleaned your room!\n";
-
-const char* vmsgHolder[9] = {
-	&vMsg_0,
-	&vMsg_1,
-	&vMsg_2,
-	&vMsg_3,
-	&vMsg_4,
-	&vMsg_5,
-	&vMsg_6,
-	&vMsg_7,
-	&vMsg_8,
-	&vMsg_9,
+const char *vmsgHolder[10] = {
+	"YOU WINNED\n",
+	"A gold medal for you!\n",
+	"GG...\n",
+	"Human Inside!\n",
+	"He\'s fast!\n",
+	"NANI!?\n",
+	"You Won!\n",
+	"Hip, hip, horray! The player saved the day!!\n",
+	"You have killed moor's law!!\n",
+	"You must have cleaned your room!\n",
 };
 
 //__Defeat Messages__//
-const char* dMsg_0 = "Lol\n";
-const char* dMsg_1 = "Get good scrub\n";
-const char* dMsg_2 = "You have lost to the paperclip machine...\n";
-const char* dMsg_3 = "The AI takeover has begun!!\n";
-const char* dMsg_4 = "It's a skill issue\n";
-const char* dMsg_5 = "Did the Coputer pour water on your cirsuits?\n";
-const char* dMsg_6 = "You must have not cleaned your room!\n";
-const char* dMsg_7 = "C'mon, man!\n";
-
-const char* dMsgHolder[7] = {
-	&dMsg_0,
-	&dMsg_1,
-	&dMsg_2,
-	&dMsg_3,
-	&dMsg_4,
-	&dMsg_5,
-	&dMsg_6,
-	&dMsg_7,
+const char *dMsgHolder[8] = {
+	"Lol\n",
+	"Get good scrub\n",
+	"You have lost to the paperclip machine...\n",
+	"The AI takeover has begun!!\n",
+	"It's a skill issue\n",
+	"Did the Coputer pour water on your cirsuits?\n",
+	"You must have not cleaned your room!\n",
+	"C\'mon, man!\n",
 };
 //___________________//
 
@@ -322,7 +278,7 @@ GameState handThrowing(Player *player, Player *computer){
 }
 
 void mainMenu(){
-	printf("s",msg_mainMenu);
+	printf("%s",msg_mainMenu);
 }
 
 //________Main Game Loop________
