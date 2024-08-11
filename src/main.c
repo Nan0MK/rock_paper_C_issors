@@ -253,18 +253,27 @@ GameState handThrowing(Player *player, Player *computer){
 	LogicSignal winnerIs = logicManager(player, computer);
 	switch (winnerIs){
 	case P1_WIN:
+		printf("%s", code_clear);
+		//show Player's hand
+		//show CPU's hand
 		printf("Player wins with %s!\n",weaponConverter(player->hand));
 		player->score = player->score + 1;
 		return GS_WIN;
 		break;
 	
 	case P2_WIN:
+		printf("%s", code_clear);
+		//show Player's hand
+		//show CPU's hand
 		printf("CPU wins with %s!\n",weaponConverter(computer->hand));
 		computer->score = computer->score + 1;
 		return GS_WIN;
 		break;
 	
 	case LS_TIE:
+		printf("%s", code_clear);
+		//show Player's hand
+		//show CPU's hand
 		printf("TIE! Player chose %s.\nCPU chose %s.\n",weaponConverter(player->hand), weaponConverter(computer->hand));
 		return GS_TIE;
 		break;
@@ -279,6 +288,15 @@ GameState handThrowing(Player *player, Player *computer){
 
 void mainMenu(){
 	printf("%s",msg_mainMenu);
+
+	printf("CHOICE: ");
+	char choice[5];
+	scanf("%4s", choice);
+
+	if(strcmp(choice, "1") || strcmp(choice, "p") || strcmp(choice, "P") || strcmp(choice, "PLAY") || strcmp(choice, "play")){
+		countdown(5);
+		game();
+	}
 }
 
 //________Main Game Loop________
