@@ -10,6 +10,7 @@ I am now trying to replicate it in C
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <time.h>
 
 //________Messages________
 const char* msg_throwHands = (
@@ -25,7 +26,6 @@ const char* msg_pickName = (
 );
 
 const char* msg_mainMenu = (
-	"Rock Paper C-issors!\n"
 	"\n"
 	"(1 or P). PLAY\n"
 	"(2 or Q). QUIT\n"
@@ -286,19 +286,19 @@ GameState handThrowing(Player *player, Player *computer){
 	}
 }
 
-void game(); //Forward declaration
+//void game(); //Forward declaration
 
-void mainMenu(){
-	//Splash handler				It's not working right ATM
-	int max = 1;
-	int min = 22;
+void mainMenu(){//											MAIN MENU STILL NEEDS FIXING!
+	printf("\033[1;37mRock Paper C-issors!\033[0m\n\n");
 
-	int c = rand() % (max - min);
-	printf("%s\n", splash[c]);
+	//Splash handler
+	srand(time(0));
+	int max = 22;
+
+	int c = rand() % max;
+	printf("\033[0;33m%s\033[0m", splash[c]);	// %s is the text
 	//_____________
 
-
-	printf("\n");
 	printf("%s",msg_mainMenu);
 
 	printf("CHOICE: ");
@@ -307,7 +307,15 @@ void mainMenu(){
 
 	if(strcmp(choice, "1") || strcmp(choice, "p") || strcmp(choice, "P") || strcmp(choice, "PLAY") || strcmp(choice, "play")){
 		countdown(5);
-		game();
+		printf("A");
+		//game();
+	}
+	else if(strcmp(choice, "2") || strcmp(choice, "q") || strcmp(choice, "Q") || strcmp(choice, "QUIT") || strcmp(choice, "quit")){
+		printf("%s",code_clear);
+		printf("Goodbye");
+		countdown(3);
+		printf("B");
+		//exit(1);
 	}
 }
 
