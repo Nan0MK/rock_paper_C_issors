@@ -39,7 +39,7 @@ const char* msg_replayMenu = (
 );
 
 //__Splashes__//
-const char *splashHolder[23] = {
+const char *splash[23] = {
 	"Against an AI?!!\n",
 	"So you think you're smarter than a 5'th grader\n",
 	"Also try Minetest\n",
@@ -286,7 +286,19 @@ GameState handThrowing(Player *player, Player *computer){
 	}
 }
 
+void game(); //Forward declaration
+
 void mainMenu(){
+	//Splash handler				It's not working right ATM
+	int max = 1;
+	int min = 22;
+
+	int c = rand() % (max - min);
+	printf("%s\n", splash[c]);
+	//_____________
+
+
+	printf("\n");
 	printf("%s",msg_mainMenu);
 
 	printf("CHOICE: ");
