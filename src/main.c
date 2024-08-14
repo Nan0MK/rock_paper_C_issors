@@ -14,28 +14,35 @@ I am now trying to replicate it in C
 
 //________Messages________
 const char* msg_throwHands = (
-	"Choose a weapon:\n"
-	"(1 or R). ROCK\n"
-	"(2 or P). PAPER\n"
-	"(3 or S). SCISSORS\n"
+	"\n"
+	"|==============================|\n"
+	"|      Choose a weapon:        |\n"
+	"|      (1 or R). ROCK          |\n"
+	"|      (2 or P). PAPER         |\n"
+	"|      (3 or S). SCISSORS      |\n"
+	"|==============================|\n"
 );
 
 const char* msg_pickName = (
-	"Pick Your Name\n"
-	"Name: "
+	"		|Pick Your Name|		\n"
+	"		|Name: "
 );
 
 const char* msg_mainMenu = (
 	"\n"
-	"(1 or P). PLAY\n"
-	"(2 or Q). QUIT\n"
+	"|==========================|\n"
+	"|      (1 or P). PLAY      |\n"
+	"|      (2 or Q). QUIT      |\n"
+	"|==========================|\n"
 );
 
 const char* msg_replayMenu = (
-	"Want to play again?\n"
-	"\n"
-	"(1 or P). PLAY AGAIN\n"
-	"(2 or Q). QUIT\n"
+	"|==================================|\n"
+	"|      Want to play again?         |\n"
+	"|                                  |\n"
+	"|      (1 or P). PLAY AGAIN        |\n"
+	"|      (2 or Q). QUIT              |\n"
+	"|==================================|\n"
 );
 
 //__Splashes__//
@@ -118,6 +125,18 @@ void countdown(int secconds){
 	while(i > 0){
 		printf("%s",code_clear);
 		printf("%d",i);
+		fflush(stdout);
+		sleep(1);
+		i = i-1;
+	}
+	sleep(1);
+	printf("%s",code_clear);
+}
+void countdown_goodbye(int secconds){
+	int i = secconds;
+	while(i > 0){
+		printf("%s",code_clear);
+		printf("Goodbye _%d",i);
 		fflush(stdout);
 		sleep(1);
 		i = i-1;
@@ -286,9 +305,10 @@ GameState handThrowing(Player *player, Player *computer){
 	}
 }
 
-//void game(); //Forward declaration
+void game(); //Forward declaration?
 
-void mainMenu(){//											MAIN MENU STILL NEEDS FIXING!
+//														____MAIN  MENU_____
+void mainMenu(){
 	printf("\033[1;37mRock Paper C-issors!\033[0m\n\n");
 
 	//Splash handler
@@ -305,21 +325,36 @@ void mainMenu(){//											MAIN MENU STILL NEEDS FIXING!
 	char choice[5];
 	scanf("%4s", choice);
 
-	if(strcmp(choice, "1") || strcmp(choice, "p") || strcmp(choice, "P") || strcmp(choice, "PLAY") || strcmp(choice, "play")){
+	if(strcmp(choice, "1")==0 || strcmp(choice, "p")==0 || strcmp(choice, "P")==0 || strcmp(choice, "PLAY")==0 || strcmp(choice, "play")==0){
 		countdown(5);
-		printf("A");
-		//game();
+		game();
 	}
-	else if(strcmp(choice, "2") || strcmp(choice, "q") || strcmp(choice, "Q") || strcmp(choice, "QUIT") || strcmp(choice, "quit")){
+	else if(strcmp(choice, "2")==0 || strcmp(choice, "q")==0 || strcmp(choice, "Q")==0 || strcmp(choice, "QUIT")==0 || strcmp(choice, "quit")==0){
 		printf("%s",code_clear);
-		printf("Goodbye");
-		countdown(3);
-		printf("B");
-		//exit(1);
+		countdown_goodbye(3);
+		exit(1);
+	}
+}
+//													____PLAY AGAIN MENU____
+void playAgainMenu(){
+	printf("%s",msg_replayMenu);
+
+	printf("CHOICE: ");
+	char choice[5];
+	scanf("%4s", choice);
+
+	if(strcmp(choice, "1")==0 || strcmp(choice, "p")==0 || strcmp(choice, "P")==0 || strcmp(choice, "PLAY")==0 || strcmp(choice, "play")==0){
+		countdown(5);
+		game();
+	}
+	else if(strcmp(choice, "2")==0 || strcmp(choice, "q")==0 || strcmp(choice, "Q")==0 || strcmp(choice, "QUIT")==0 || strcmp(choice, "quit")==0){
+		printf("%s",code_clear);
+		countdown_goodbye(3);
+		exit(1);
 	}
 }
 
-//________Main Game Loop________
+//																________Main Game Loop________
 void game(){
 	// Player chooses name
 	printf("%s",msg_pickName);
@@ -341,12 +376,12 @@ void game(){
 		if(gs == GS_WIN){
 			if(player0.score == computer.score + 2){
 				printf("PLAYER WINS THIS ROUND\n");
-				// Play again menu
+				playAgainMenu();
 				gs = GS_STOP;
 			}
 			else if(computer.score == player0.score + 2){
 				printf("CPU WINS THIS ROUND\n");
-				// Play again menu
+				playAgainMenu();
 				gs = GS_STOP;
 			}
 		}
