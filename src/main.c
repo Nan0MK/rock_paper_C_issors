@@ -122,7 +122,7 @@ typedef enum GameState{
 //Countdown
 void countdown(int secconds){
 	int i = secconds;
-	while(i > 0){
+	while(i >= 0){
 		printf("%s",code_clear);
 		printf("%d",i);
 		fflush(stdout);
@@ -134,7 +134,7 @@ void countdown(int secconds){
 }
 void countdown_goodbye(int secconds){
 	int i = secconds;
-	while(i > 0){
+	while(i >= 0){
 		printf("%s",code_clear);
 		printf("Goodbye _%d",i);
 		fflush(stdout);
