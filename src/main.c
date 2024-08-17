@@ -11,6 +11,7 @@ I am now trying to replicate it in C
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
+#include "ccolor.h"
 
 //________Messages________
 const char* msg_throwHands = (
@@ -202,21 +203,21 @@ void throwHands(Player *player){
 		strcmp(choice, "rock") == 0|| strcmp(choice, "ROCK") == 0|| strcmp(choice, "Rock") == 0)
 		{
 		player->hand = ROCK;
-		printf("You picked \'%s\'!\n", weaponConverter(player->hand));
+		printf("You picked \'%s%s%s\'!\n", clr_white_b, weaponConverter(player->hand), clr_reset);
 	}
 
 	else if(strcmp(choice, "2") == 0|| strcmp(choice, "P") == 0|| strcmp(choice, "p") == 0||
 		strcmp(choice, "paper") == 0|| strcmp(choice, "PAPER") == 0|| strcmp(choice, "Paper") == 0)
 		{
 		player->hand = PAPER;
-		printf("You picked \'%s\'!\n", weaponConverter(player->hand));
+		printf("You picked \'%s%s%s\'!\n", clr_white_b, weaponConverter(player->hand), clr_reset);
 	}
 
 	else if(strcmp(choice, "3") == 0|| strcmp(choice, "S") == 0|| strcmp(choice, "s") == 0||
 		strcmp(choice, "scissors") == 0|| strcmp(choice, "SCISSORS") == 0|| strcmp(choice, "Scissors") == 0)
 		{
 		player->hand = SCISSORS;
-		printf("You picked \'%s\'!\n", weaponConverter(player->hand));
+		printf("You picked \'%s%s%s\'!\n", clr_white_b, weaponConverter(player->hand), clr_reset);
 	}
 
 	else{
